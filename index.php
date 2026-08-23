@@ -4,107 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora PHP</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #2c3e50; /* Fundo escuro elegante */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #333;
-        }
-
-        .calculadora-container {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            padding: 25px;
-            width: 320px;
-        }
-
-        .titulo {
-            text-align: center;
-            margin-top: 0;
-            color: #2c3e50;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            font-size: 14px;
-            color: #555;
-        }
-
-        input[type="number"], select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box; 
-            transition: border-color 0.3s ease;
-        }
-
-        input[type="number"]:focus, select:focus {
-            outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-        }
-
-        .btn-calcular {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            margin-top: 10px;
-        }
-
-        .btn-calcular:hover {
-            background-color: #2980b9;
-        }
-
-        .btn-calcular:active {
-            transform: scale(0.98);
-        }
-
-        .area-resultado {
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        .visor-resultado {
-            background-color: #ecf0f1;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c3e50;
-            border: 2px dashed #bdc3c7;
-            word-wrap: break-word;
-        }
-
-        .erro {
-            color: #e74c3c;
-            font-size: 18px;
-            border-color: #e74c3c;
-            background-color: #fadbd8;
-        }
-    </style>
+    <!-- Aqui nós conectamos o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -141,7 +42,6 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // Pegando os dados do formulário e convertendo para float para aceitar decimais
-            // Usei isset para evitar erros se algo não for enviado corretamente
             $num1 = isset($_POST["num1"]) ? floatval($_POST["num1"]) : 0;
             $num2 = isset($_POST["num2"]) ? floatval($_POST["num2"]) : 0;
             $operacao = isset($_POST["operacao"]) ? $_POST["operacao"] : "";
@@ -177,7 +77,6 @@
                 echo "<div class='visor-resultado erro'>" . $resultado . "</div>";
             } else {
                 // Se deu certo, formata o número pra ficar bonito
-                // Usei str_replace para trocar ponto por vírgula no padrão brasileiro
                 $resultado_formatado = str_replace('.', ',', (string)$resultado);
                 echo "<div class='visor-resultado'> = " . $resultado_formatado . "</div>";
             }
