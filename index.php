@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora PHP</title>
-    <!-- Aqui nós conectamos o arquivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
